@@ -45,6 +45,11 @@ if ($ENV{'SCRIPT_NAME'} eq '/testproxy') {
 
     my $user = $cas->validateST($proxy_url, $ST);
 
+    unless (defined $user) {
+	&error(&CAS::get_errors);
+	exit 1;
+    }
+
     my $PT = $cas->retrievePT($app_url);
     
     my ($user2, @proxies) = $cas->validatePT($app_url, $PT);
@@ -95,3 +100,12 @@ sub dump_env {
 	printf $fd "$k = $ENV{$k}\n";
     }
 }
+
+sub error {
+    
+    print "Content-type: text/plain\n\n";
+    printf "Erreur : %s\n", join('',@_);
+    
+    return 1;
+}
+
