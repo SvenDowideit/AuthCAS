@@ -295,8 +295,9 @@ sub get_https2{
 	my $trusted_ca_file = $ssl_data->{'cafile'};
 	my $trusted_ca_path = $ssl_data->{'capath'};
 
-	unless ( -r ($trusted_ca_file) ||  (-d $trusted_ca_path )) {
-	    printf STDERR "error : incorrect access to cafile $trusted_ca_file bor capath $trusted_ca_path\n";
+	unless ( ($trusted_ca_file && -r $trusted_ca_file) ||  
+		 ($trusted_ca_path && -d $trusted_ca_path )) {
+	    printf STDERR "error : incorrect access to cafile $trusted_ca_file or capath $trusted_ca_path\n";
 	    return undef;
 	}
 
@@ -313,7 +314,7 @@ sub get_https2{
 	my $ssl_socket;
 
 	$ssl_socket = new IO::Socket::SSL(SSL_use_cert => 0,
-					  SSL_verify_mode => 0x00,
+					  SSL_verify_mode => 0x01,
 					  SSL_ca_file => $trusted_ca_file,
 					  SSL_ca_path => $trusted_ca_path,
 					  PeerAddr => $host,
@@ -353,7 +354,6 @@ CAS - Client library for CAS 2.0
 
   use CAS;
   my $cas = new CAS(casUrl => 'https://cas.myserver, 
-		    CAPath => '/etc/httpd/conf/ssl.crt', 
 		    CAFile => '/etc/httpd/conf/ssl.crt/ca-bundle.crt',
 		    );
 

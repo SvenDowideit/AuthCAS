@@ -21,7 +21,6 @@ my $app_url = 'http://your.server/testapp';
 my $cas_url = 'https://your.cas.server';
 
 my $cas = new CAS(casUrl => $cas_url, 
-		  CAPath => '/usr/local/apache/conf/ssl.crt', 
 		  CAFile => '/usr/local/apache/conf/ssl.crt/ca-bundle.crt',
 		  );
 
