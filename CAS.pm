@@ -295,12 +295,12 @@ sub get_https2{
 	my $trusted_ca_file = $ssl_data->{'cafile'};
 	my $trusted_ca_path = $ssl_data->{'capath'};
 
-	unless ( ($trusted_ca_file && -r $trusted_ca_file) ||  
-		 ($trusted_ca_path && -d $trusted_ca_path )) {
+	if (($trusted_ca_file && !(-r $trusted_ca_file)) ||  
+		 ($trusted_ca_path && !(-d $trusted_ca_path))) {
 	    printf STDERR "error : incorrect access to cafile $trusted_ca_file or capath $trusted_ca_path\n";
 	    return undef;
 	}
-
+	
 	unless (require IO::Socket::SSL) {
 	    printf STDERR "Unable to use SSL library, IO::Socket::SSL required, install IO-Socket-SSL (CPAN) first\n";
 	    return undef;
@@ -313,15 +313,20 @@ sub get_https2{
 
 	my $ssl_socket;
 
-	$ssl_socket = new IO::Socket::SSL(SSL_use_cert => 0,
-					  SSL_verify_mode => 0x01,
-					  SSL_ca_file => $trusted_ca_file,
-					  SSL_ca_path => $trusted_ca_path,
-					  PeerAddr => $host,
-					  PeerPort => $port,
-					  Proto => 'tcp',
-					  Timeout => '5'
-					  );
+	my %ssl_options = (SSL_use_cert => 0,
+			   PeerAddr => $host,
+			   PeerPort => $port,
+			   Proto => 'tcp',
+			   Timeout => '5'
+			   );
+
+	$ssl_options{'SSL_ca_file'} = $trusted_ca_file if ($trusted_ca_file);
+	$ssl_options{'SSL_ca_path'} = $trusted_ca_path if ($trusted_ca_path);
+	
+	## If SSL_ca_file or SSL_ca_path => verify peer certificate
+	$ssl_options{'SSL_verify_mode'} = 0x01 if ($trusted_ca_file || $trusted_ca_path);
+	
+	$ssl_socket = new IO::Socket::SSL(%ssl_options);
 	
 	unless ($ssl_socket) {
 	    printf STDERR "error %s unable to connect https://%s:%s/\n",&IO::Socket::SSL::errstr,$host,$port;
