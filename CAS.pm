@@ -353,8 +353,8 @@ CAS - Client library for CAS 2.0
 
   use CAS;
   my $cas = new CAS(casUrl => 'https://cas.myserver, 
-		    CAFile => '/etc/httpd/conf/ssl.crt', 
-		    CAPath => '/etc/httpd/conf/ssl.crt/ca-bundle.crt',
+		    CAPath => '/etc/httpd/conf/ssl.crt', 
+		    CAFile => '/etc/httpd/conf/ssl.crt/ca-bundle.crt',
 		    );
 
   my $login_url = $cas->getServerLoginURL('http://myserver/app.cgi');
