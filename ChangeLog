@@ -1,3 +1,12 @@
+2003-11-25 16:40  olivier.salaun
+
+	* CAS.pm, sampleCasClient.pl: Change: Better error management via
+	the $errors variable
+
+2003-11-14 17:09  olivier.salaun
+
+	* ChangeLog: Add Changelog
+
 2003-11-14 17:08  olivier.salaun
 
 	* CAS.pm: [proposed by V.Mathieu] Change: verify CAS server
