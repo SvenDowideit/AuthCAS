@@ -138,6 +138,14 @@ sub getServerLoginURL {
     return $self->{'url'}.'/login'.'?service='.&_escape_chars($service);
 }
 
+## Returns non-blocking login URL
+## ie: if user is logged in, return the ticket, otherwise do not prompt for login
+sub getServerGatewayURL {
+    my $self = shift;
+    my $service = shift;
+    
+    return $self->{'url'}.'/login'.'?service='.&_escape_chars($service).'&gateway=1';
+}
 
 sub getServerServiceValidateURL {
     my $self = shift;
