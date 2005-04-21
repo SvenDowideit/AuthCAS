@@ -6,23 +6,23 @@
 
 ## This is a sample CAS client
 ## You should add 3 ScriptAlias entries for it in your Apache conf file
-## ScriptAlias /testproxy /var/www/cgi-bin/CAS/sampleCasClient.pl
-## ScriptAlias /testapp /var/www/cgi-bin/CAS/sampleCasClient.pl
+## ScriptAlias /testproxy /var/www/cgi-bin/AuthCAS/sampleCasClient.pl
+## ScriptAlias /testapp /var/www/cgi-bin/AuthCAS/sampleCasClient.pl
 ##
 ## This last alias should be set as HTTPS 
-## ScriptAlias /testcallback /var/www/cgi-bin/CAS/sampleCasClient.pl
+## ScriptAlias /testcallback /var/www/cgi-bin/AuthCAS/sampleCasClient.pl
 
 
-use CAS;
+use AuthCAS;
 
 my $proxy_url = 'http://your.server/testproxy';
 my $proxy_callback_url = 'https://your.server/testcallback';
 my $app_url = 'http://your.server/testapp';
 my $cas_url = 'https://your.cas.server';
 
-my $cas = new CAS(casUrl => $cas_url, 
-		  CAFile => '/usr/local/apache/conf/ssl.crt/ca-bundle.crt',
-		  );
+my $cas = new AuthCAS(casUrl => $cas_url, 
+		      CAFile => '/usr/local/apache/conf/ssl.crt/ca-bundle.crt',
+		      );
 
 if ($ENV{'SCRIPT_NAME'} eq '/testproxy') {
     $cas->proxyMode(pgtFile => '/tmp/pgt.txt',
@@ -46,7 +46,7 @@ if ($ENV{'SCRIPT_NAME'} eq '/testproxy') {
     my $user = $cas->validateST($proxy_url, $ST);
 
     unless (defined $user) {
-	&error(&CAS::get_errors);
+	&error(&AuthCAS::get_errors);
 	exit 1;
     }
 
