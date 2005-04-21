@@ -3,6 +3,91 @@ package CAS;
 
 use strict;
 
+=head1 NAME
+
+CAS - Client library for CAS 2.0
+
+=head1 VERSION
+
+Version 1.0
+
+=cut
+
+our $VERSION = '1.0';
+
+=head1 SYNOPSIS
+
+  A simple example with a direct CAS authentication
+
+  use CAS;
+  my $cas = new CAS(casUrl => 'https://cas.myserver, 
+		    CAFile => '/etc/httpd/conf/ssl.crt/ca-bundle.crt',
+		    );
+
+  my $login_url = $cas->getServerLoginURL('http://myserver/app.cgi');
+
+  ## The user should be redirected to the $login_url
+  ## When coming back from the CAS server a ticket is provided in the QUERY_STRING
+
+  ## $ST should contain the receaved Service Ticket
+  my $user = $cas->validateST('http://myserver/app.cgi', $ST);
+
+  printf "User authenticated as %s\n", $user;
+
+
+  In the following example a proxy is requesting a Proxy Ticket for the target application
+
+  $cas->proxyMode(pgtFile => '/tmp/pgt.txt',
+	          pgtCallbackUrl => 'https://myserver/proxy.cgi?callback=1
+		  );
+  
+  ## Same as before but the URL is the proxy URL
+  my $login_url = $cas->getServerLoginURL('http://myserver/proxy.cgi');
+
+  ## Like in the previous example we should receave a $ST
+
+  my $user = $cas->validateST('http://myserver/proxy.cgi', $ST);
+
+  ## Process errors
+  printf STDERR "Error: %s\n", &CAS::get_errors() unless (defined $user);
+
+  ## Now we request a Proxy Ticket for the target application
+  my $PT = $cas->retrievePT('http://myserver/app.cgi');
+    
+  ## This piece of code is executed by the target application
+  ## It received a Proxy Ticket from the proxy
+  my ($user, @proxies) = $cas->validatePT('http://myserver/app.cgi', $PT);
+
+  printf "User authenticated as %s via %s proxies\n", $user, join(',',@proxies);
+
+
+=head1 DESCRIPTION
+
+CAS is Yale University's web authentication system, heavily inspired by Kerberos.
+Release 2.0 of CAS provides "proxied credential" feature that allows authentication
+tickets to be carried by intermediate applications (Portals for instance), they are
+called proxy.
+
+This CAS Perl module provides required subroutines to validate and retrieve CAS tickets.
+
+=head1 SEE ALSO
+
+Yale Central Authentication Service (http://www.yale.edu/tp/auth/) 
+ phpCAS (http://esup-phpcas.sourceforge.net/)
+
+=head1 COPYRIGHT
+
+Copyright (C) 2003 Comite Reseau des Universites (http://www.cru.fr). All rights reserved.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=head1 AUTHORS
+
+Olivier Salaun
+
+=cut
+
 my @ISA = qw(Exporter);
 my @EXPORT = qw($errors);
 
@@ -382,81 +467,4 @@ sub get_https2{
 }
 
 1;
-__END__
 
-=head1 NAME
-
-CAS - Client library for CAS 2.0
-
-=head1 SYNOPSIS
-
-  A simple example with a direct CAS authentication
-
-  use CAS;
-  my $cas = new CAS(casUrl => 'https://cas.myserver, 
-		    CAFile => '/etc/httpd/conf/ssl.crt/ca-bundle.crt',
-		    );
-
-  my $login_url = $cas->getServerLoginURL('http://myserver/app.cgi');
-
-  ## The user should be redirected to the $login_url
-  ## When coming back from the CAS server a ticket is provided in the QUERY_STRING
-
-  ## $ST should contain the receaved Service Ticket
-  my $user = $cas->validateST('http://myserver/app.cgi', $ST);
-
-  printf "User authenticated as %s\n", $user;
-
-
-  In the following example a proxy is requesting a Proxy Ticket for the target application
-
-  $cas->proxyMode(pgtFile => '/tmp/pgt.txt',
-	          pgtCallbackUrl => 'https://myserver/proxy.cgi?callback=1
-		  );
-  
-  ## Same as before but the URL is the proxy URL
-  my $login_url = $cas->getServerLoginURL('http://myserver/proxy.cgi');
-
-  ## Like in the previous example we should receave a $ST
-
-  my $user = $cas->validateST('http://myserver/proxy.cgi', $ST);
-
-  ## Process errors
-  printf STDERR "Error: %s\n", &CAS::get_errors() unless (defined $user);
-
-  ## Now we request a Proxy Ticket for the target application
-  my $PT = $cas->retrievePT('http://myserver/app.cgi');
-    
-  ## This piece of code is executed by the target application
-  ## It received a Proxy Ticket from the proxy
-  my ($user, @proxies) = $cas->validatePT('http://myserver/app.cgi', $PT);
-
-  printf "User authenticated as %s via %s proxies\n", $user, join(',',@proxies);
-
-
-=head1 DESCRIPTION
-
-CAS is Yale University's web authentication system, heavily inspired by Kerberos.
-Release 2.0 of CAS provides "proxied credential" feature that allows authentication
-tickets to be carried by intermediate applications (Portals for instance), they are
-called proxy.
-
-This CAS Perl module provides required subroutines to validate and retrieve CAS tickets.
-
-=head1 SEE ALSO
-
-Yale Central Authentication Service (http://www.yale.edu/tp/auth/) 
- phpCAS (http://esup-phpcas.sourceforge.net/)
-
-=head1 COPYRIGHT
-
-Copyright (C) 2003 Comite Reseau des Universites (http://www.cru.fr). All rights reserved.
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
-
-=head1 AUTHORS
-
-Olivier Salaun
-
-=cut
