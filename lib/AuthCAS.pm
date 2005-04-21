@@ -1,26 +1,39 @@
 
-package CAS;
+package AuthCAS;
 
 use strict;
 
+my $VERSION = 1.0;
+
 =head1 NAME
 
-CAS - Client library for CAS 2.0
+AuthCAS - Client library for CAS 2.0 authentication server
 
 =head1 VERSION
 
 Version 1.0
 
-=cut
+=head1 DESCRIPTION
 
-our $VERSION = '1.0';
+AuthCAS aims at providing a Perl API to Yale's Central Authentication System (CAS). Only a basic Perl library is provided with CAS whereas AuthCAS is a full object-oriented library. 
+=head1 PREREQUISITES
+
+This script requires IO::Socket::SSL and LWP::UserAgent
+
+=pod OSNAMES
+
+any
+
+=pod SCRIPT CATEGORIES
+
+Network
 
 =head1 SYNOPSIS
 
   A simple example with a direct CAS authentication
 
-  use CAS;
-  my $cas = new CAS(casUrl => 'https://cas.myserver, 
+  use AuthCAS;
+  my $cas = new AuthCAS(casUrl => 'https://cas.myserver, 
 		    CAFile => '/etc/httpd/conf/ssl.crt/ca-bundle.crt',
 		    );
 
@@ -49,7 +62,7 @@ our $VERSION = '1.0';
   my $user = $cas->validateST('http://myserver/proxy.cgi', $ST);
 
   ## Process errors
-  printf STDERR "Error: %s\n", &CAS::get_errors() unless (defined $user);
+  printf STDERR "Error: %s\n", &AuthCAS::get_errors() unless (defined $user);
 
   ## Now we request a Proxy Ticket for the target application
   my $PT = $cas->retrievePT('http://myserver/app.cgi');
@@ -68,7 +81,7 @@ Release 2.0 of CAS provides "proxied credential" feature that allows authenticat
 tickets to be carried by intermediate applications (Portals for instance), they are
 called proxy.
 
-This CAS Perl module provides required subroutines to validate and retrieve CAS tickets.
+This AuthCAS Perl module provides required subroutines to validate and retrieve CAS tickets.
 
 =head1 SEE ALSO
 
