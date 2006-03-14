@@ -4,4 +4,4 @@ BEGIN {
 use_ok( 'AuthCAS' );
 }
 
-diag( "Testing CAS $CAS::VERSION" );
+diag( "Testing AuthCAS $AuthCAS::VERSION" );
