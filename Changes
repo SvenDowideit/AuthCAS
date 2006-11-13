@@ -1,3 +1,36 @@
+2006-04-11 16:01  olivier.salaun
+
+	* lib/AuthCAS.pm: Fix: Added "Host:" HTTP header field to requests
+
+2006-03-14 10:42  olivier.salaun
+
+	* META.yml, lib/AuthCAS.pm, t/00.load.t: preparing release 1.1
+
+2006-03-14 09:40  olivier.salaun
+
+	* t/00.load.t: [reported by L.Porcheron]: incorrect tests referring
+	  to old module name
+
+2005-04-21 17:02  olivier.salaun
+
+	* lib/: AuthCAS.pm, CAS.pm: enamed module
+
+2005-04-21 16:50  olivier.salaun
+
+	* Build.PL, MANIFEST, META.yml, Makefile.PL, sampleCasClient.pl:
+	  enamed project AuthCAS
+
+2005-04-21 16:04  olivier.salaun
+
+	* sampleCasClient.pl: restore sample code
+
+2005-04-21 16:04  olivier.salaun
+
+	* .cvsignore, Build.PL, CAS.pm, ChangeLog, Changes, MANIFEST,
+	  META.yml, Makefile.PL, README, sampleCasClient.pl, lib/CAS.pm,
+	  t/00.load.t, t/pod-coverage.t, t/pod.t: A clean CPAN distribution
+	  of CAS.pm
+
 2003-11-28 15:19  olivier.salaun
 
 	* CAS.pm: Rename sub
