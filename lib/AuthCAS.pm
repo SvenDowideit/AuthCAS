@@ -216,16 +216,16 @@ sub _parse_xml {
 
     my %xml_struct;
 
-    while ($data =~ /^<([^\s>]+)(\s+[^\s>]+)?>([\s\S\n]*)(<\/\1>)/m) {
+    while ($data =~ /^<([^\s>]+)(\s+[^\s>]+)*>([\s\S\n]*)(<\/\1>)/m) {
 	my ($new_tag, $new_data) = ($1,$3);
 	chomp $new_data;
 	$new_data =~ s/^[\s\n]+//m;
-	$data =~ s/^<$new_tag(\s+[^\s>]+)?>([\s\S\n]*)(<\/$new_tag>)//m;
+	$data =~ s/^<$new_tag(\s+[^\s>]+)*>([\s\S\n]*)(<\/$new_tag>)//m;
 	$data =~ s/^[\s\n]+//m;
 	
 	## Check if data still includes XML tags
 	my $struct;
-	if ($new_data =~/^<([^\s>]+)(\s+[^\s>]+)?>([\s\S\n]*)(<\/\1>)/m) {
+	if ($new_data =~/^<([^\s>]+)(\s+[^\s>]+)*>([\s\S\n]*)(<\/\1>)/m) {
 	    $struct = &_parse_xml($new_data);
 	}else {
 	    $struct = $new_data;
