@@ -1,82 +1,86 @@
-2006-04-11 16:01  olivier.salaun
+2006-11-13 13:02  olivier.salaun
+
+	* Changes: updated
+
+2006-04-11 14:01  olivier.salaun
 
 	* lib/AuthCAS.pm: Fix: Added "Host:" HTTP header field to requests
 
-2006-03-14 10:42  olivier.salaun
+2006-03-14 09:42  olivier.salaun
 
 	* META.yml, lib/AuthCAS.pm, t/00.load.t: preparing release 1.1
 
-2006-03-14 09:40  olivier.salaun
+2006-03-14 08:40  olivier.salaun
 
 	* t/00.load.t: [reported by L.Porcheron]: incorrect tests referring
 	  to old module name
 
-2005-04-21 17:02  olivier.salaun
+2005-04-21 15:02  olivier.salaun
 
-	* lib/: AuthCAS.pm, CAS.pm: enamed module
+	* lib/AuthCAS.pm, lib/CAS.pm: enamed module
 
-2005-04-21 16:50  olivier.salaun
+2005-04-21 14:50  olivier.salaun
 
 	* Build.PL, MANIFEST, META.yml, Makefile.PL, sampleCasClient.pl:
-	  enamed project AuthCAS
+	  enamed project AuthCAS?\024?\024
 
-2005-04-21 16:04  olivier.salaun
+2005-04-21 14:04  olivier.salaun
 
 	* sampleCasClient.pl: restore sample code
 
-2005-04-21 16:04  olivier.salaun
+2005-04-21 14:04  olivier.salaun
 
-	* .cvsignore, Build.PL, CAS.pm, ChangeLog, Changes, MANIFEST,
-	  META.yml, Makefile.PL, README, sampleCasClient.pl, lib/CAS.pm,
-	  t/00.load.t, t/pod-coverage.t, t/pod.t: A clean CPAN distribution
-	  of CAS.pm
+	* ., .cvsignore, Build.PL, CAS.pm, ChangeLog, Changes, MANIFEST,
+	  META.yml, Makefile.PL, README, lib, lib/CAS.pm,
+	  sampleCasClient.pl, t, t/00.load.t, t/pod-coverage.t, t/pod.t: A
+	  clean CPAN distribution of CAS.pm
 
-2003-11-28 15:19  olivier.salaun
+2003-11-28 14:19  olivier.salaun
 
 	* CAS.pm: Rename sub
 
-2003-11-27 12:12  olivier.salaun
+2003-11-27 11:12  olivier.salaun
 
 	* CAS.pm: Change: allow all service Path to be changed at new()
 	  time
 
-2003-11-26 16:55  olivier.salaun
+2003-11-26 15:55  olivier.salaun
 
 	* CAS.pm: Add getServerGatewayURL() for nonblocking login check
 
-2003-11-25 16:41  olivier.salaun
+2003-11-25 15:41  olivier.salaun
 
 	* ChangeLog: Update
 
-2003-11-25 16:40  olivier.salaun
+2003-11-25 15:40  olivier.salaun
 
 	* CAS.pm, sampleCasClient.pl: Change: Better error management via
 	  the $errors variable
 
-2003-11-14 17:09  olivier.salaun
+2003-11-14 16:09  olivier.salaun
 
 	* ChangeLog: Add Changelog
 
-2003-11-14 17:08  olivier.salaun
+2003-11-14 16:08  olivier.salaun
 
 	* CAS.pm: [proposed by V.Mathieu] Change: verify CAS server
 	  certificate only if capath or cafile were set
 
-2003-11-14 16:33  olivier.salaun
+2003-11-14 15:33  olivier.salaun
 
 	* CAS.pm, sampleCasClient.pl: [reported by V.Mathieu] Fix
 	  SSL_verify_mode
 
-2003-11-14 16:08  olivier.salaun
+2003-11-14 15:08  olivier.salaun
 
 	* CAS.pm, sampleCasClient.pl: [reported by V. Mathieu] Fix: capath
 	  and cafile were inverted in sample code
 
-2003-11-14 16:00  olivier.salaun
-
-	* CAS.pm, sampleCasClient.pl: First version of PerlCAS
-
-2003-11-14 16:00  olivier.salaun
+2003-11-14 15:00  olivier.salaun
 
 	* CAS.pm, sampleCasClient.pl: Initial revision
+
+2003-11-14 15:00  
+
+	* branches, tags, .: New repository initialized by cvs2svn.
 
