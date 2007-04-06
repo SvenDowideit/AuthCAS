@@ -373,7 +373,14 @@ sub callCAS {
 
     my ($host, $port, $path) = &_parse_url($url);
     
-    my @xml = &get_https2($host, $port, $path,{'cafile' =>  $self->{'CAFile'},  'capath' => $self->{'CAPath'}});
+    my $xmlRef = &get_https2($host, $port, $path,{'cafile' =>  $self->{'CAFile'},  'capath' => $self->{'CAPath'}});
+
+    unless (defined $xmlRef) {
+	warn $errors;
+	return undef;
+    }
+
+    my @xml = @$xmlRef;
 
     ## Skip HTTP header fields
     my $line = shift @xml;
