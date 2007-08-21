@@ -29,11 +29,15 @@ Alternatively, to install with Module::Build, you can use the following commands
     ./Build install
 
 
+REPORTING BUGS
+
+You can report bugs using our bug tracking system : http://sourcesup.cru.fr/tracker/?group_id=76
+
 COPYRIGHT AND LICENCE
 
 Put the correct copyright and licence information here.
 
-Copyright (C) 2005 Olivier Salaun
+Copyright (C) 2005,2006,2007 Olivier Salaun - Comité Réseau des Universités
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
