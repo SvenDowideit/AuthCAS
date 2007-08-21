@@ -1,3 +1,37 @@
+2007-08-21 08:31  olivier.salaun
+
+	* lib/AuthCAS.pm: [reported by P.Brusten]Fix: expected an arrayref
+	  instead of an array for gethttps2() output. This bug was
+	  introduced by S.More's patch. Concel it.
+
+2007-08-21 08:20  olivier.salaun
+
+	* README: Refer to the bug tracking system
+
+2007-04-06 16:14  olivier.salaun
+
+	* Changes: Updated
+
+2007-04-06 16:10  olivier.salaun
+
+	* META.yml, lib/AuthCAS.pm: preparind 1.2
+
+2007-04-06 16:05  olivier.salaun
+
+	* lib/AuthCAS.pm: [Kasper Løvschall] Fix: XML parser now accepts
+	  multiple name space tags in CAS xml responses
+
+2007-04-06 15:56  olivier.salaun
+
+	* lib/AuthCAS.pm: [#24021] [Stephen More] Fix: error trapping in
+	  get_https2
+
+2007-04-06 15:30  olivier.salaun
+
+	* debian, debian/compat, debian/control, debian/copyright,
+	  debian/rules: [Lionel Porcheron, Anywhere] Added the required
+	  files to allow Debian packaging.
+
 2006-11-13 13:02  olivier.salaun
 
 	* Changes: updated
