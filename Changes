@@ -1,3 +1,14 @@
+2007-10-16 09:13  olivier.salaun
+
+	* lib/AuthCAS.pm: [reported by S.McDonald, bepress.com] Fix: error
+	  at "make test" : "Global symbol "$xmlRef" requires explicit
+	  package name"
+	  The code was still refering to the old $xmlRef variable
+
+2007-08-21 08:43  olivier.salaun
+
+	* Changes: Updated
+
 2007-08-21 08:31  olivier.salaun
 
 	* lib/AuthCAS.pm: [reported by P.Brusten]Fix: expected an arrayref
@@ -116,5 +127,5 @@
 
 2003-11-14 15:00  
 
-	* branches, tags, .: New repository initialized by cvs2svn.
+	* .: New repository initialized by cvs2svn.
 
