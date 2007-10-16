@@ -375,7 +375,7 @@ sub callCAS {
     
     my @xml = &get_https2($host, $port, $path,{'cafile' =>  $self->{'CAFile'},  'capath' => $self->{'CAPath'}});
 
-    unless (defined $xmlRef) {
+    unless (@xml) {
 	warn $errors;
 	return undef;
     }
