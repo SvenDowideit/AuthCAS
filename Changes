@@ -1,3 +1,17 @@
+2009-05-12 07:31  olivier.salaun
+
+	* lib/AuthCAS.pm: Change: now use eval() to check if perl modules
+	  are available ; this is
+	  required by recent Perl interpreters
+
+2007-10-16 09:26  olivier.salaun
+
+	* lib/AuthCAS.pm: Updated release number
+
+2007-10-16 09:20  olivier.salaun
+
+	* Changes, META.yml: Preparing 1.3.1 release
+
 2007-10-16 09:13  olivier.salaun
 
 	* lib/AuthCAS.pm: [reported by S.McDonald, bepress.com] Fix: error
