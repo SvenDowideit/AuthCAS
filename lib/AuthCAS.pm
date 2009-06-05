@@ -4,7 +4,7 @@ package AuthCAS;
 use strict;
 use vars qw( $VERSION);
 
-$VERSION = '1.3.2';
+$VERSION = '1.3.3';
 
 =head1 NAME
 
@@ -12,7 +12,7 @@ AuthCAS - Client library for CAS 2.0 authentication server
 
 =head1 VERSION
 
-Version 1.3.1
+Version 1.3.3
 
 =head1 DESCRIPTION
 
