@@ -1,3 +1,12 @@
+2009-06-08 13:00  olivier.salaun
+
+	* META.yml, lib/AuthCAS.pm: Renaming 1.3.3 release to 1.4 to match
+	  the CPAN versionning style
+
+2009-06-05 15:47  olivier.salaun
+
+	* Changes, META.yml, lib/AuthCAS.pm: preparing version 1.3.3
+
 2009-05-12 15:48  olivier.salaun
 
 	* Changes, META.yml, lib/AuthCAS.pm: Updating the version number
