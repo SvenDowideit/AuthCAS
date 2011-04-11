@@ -474,8 +474,8 @@ sub get_https2{
 	    return undef;
 	}
 	
-	my $request = "GET $path HTTP/1.0\nHost: $host\n\n";
-	print $ssl_socket "$request\n\n";
+	my $request = "GET $path HTTP/1.0\r\nHost: $host\r\n\r\n";
+	print $ssl_socket "$request";
 
 	my @result;
 	while (my $line = $ssl_socket->getline) {
