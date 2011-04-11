@@ -1,6 +1,6 @@
 ---
 name: AuthCAS
-version: 1.4
+version: 1.4.1
 author:
   - 'Olivier Salaun <os AT cru.fr>'
 abstract: Client library for CAS 2.0 authentication server
@@ -12,8 +12,8 @@ requires:
 provides:
   AuthCAS:
     file: lib/AuthCAS.pm
-    version: 1.4
+    version: 1.4.1
 generated_by: Module::Build version 0.33
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
+  version: 1.4.1
