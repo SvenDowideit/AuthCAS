@@ -1,0 +1,19 @@
+---
+name: AuthCAS
+version: 1.5
+author:
+  - 'Olivier Salaun <os AT cru.fr>'
+abstract: Client library for CAS 2.0 authentication server
+license: perl
+requires:
+  Test::More: 0
+generated_by: Module::Build version 0.280801
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2
+provides:
+  AuthCAS:
+    file: lib/AuthCAS.pm
+    version: 1.5
+resources:
+  license: http://dev.perl.org/licenses/
