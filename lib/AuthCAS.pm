@@ -23,11 +23,11 @@ Only a basic Perl library is provided with CAS whereas AuthCAS is a full object-
 
 This script requires IO::Socket::SSL and LWP::UserAgent
 
-=pod OSNAMES
+=head1 OSNAMES
 
 any
 
-=pod SCRIPT CATEGORIES
+=head1 SCRIPT CATEGORIES
 
 Network
 
@@ -85,28 +85,6 @@ tickets to be carried by intermediate applications (Portals for instance), they 
 called proxy.
 
 This AuthCAS Perl module provides required subroutines to validate and retrieve CAS tickets.
-
-=head1 SEE ALSO
-
-Jasig Central Authentication Service (http://www.jasig.org/cas)
-
-was Yale Central Authentication Service (http://www.yale.edu/tp/auth/) 
- 
- phpCAS (http://esup-phpcas.sourceforge.net/)
-
-=head1 COPYRIGHT
-
-Copyright (C) 2003, 2005,2006,2007,2009 Olivier Salaun - Comité Réseau des Universités (http://www.cru.fr)
-              2012 Sven Dowideit - SvenDowideit@fosiki.com
-
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
-
-=head1 AUTHORS
-
-Olivier Salaun
-Sven Dowideit
 
 =cut
 
@@ -741,6 +719,32 @@ sub get_https2 {
 
     return (@result);
 }
+
+=pod
+
+=head1 SEE ALSO
+
+Jasig Central Authentication Service (http://www.jasig.org/cas)
+
+was Yale Central Authentication Service (http://www.yale.edu/tp/auth/) 
+ 
+ phpCAS (http://esup-phpcas.sourceforge.net/)
+
+=head1 COPYRIGHT
+
+Copyright (C) 2003, 2005,2006,2007,2009 Olivier Salaun - Comité Réseau des Universités (http://www.cru.fr)
+              2012 Sven Dowideit - SvenDowideit@fosiki.com
+
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=head1 AUTHORS
+
+  Olivier Salaun
+  Sven Dowideit
+
+=cut
 
 1;
 
