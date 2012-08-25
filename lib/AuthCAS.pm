@@ -108,28 +108,26 @@ The C<new> constructor lets you create a new B<AuthCAS> object.
 
 =over
 
-=item * casUrl - REQUIRED
+=item casUrl - REQUIRED
 
-=item * CAFile
+=item CAFile
 
-=item * CAPath
+=item CAPath
 
-=item * loginPath - '/login'
+=item loginPath - '/login'
 
-=item * logoutPath - '/logout'
+=item logoutPath - '/logout'
 
-=item * serviceValidatePath - '/serviceValidate'
+=item serviceValidatePath - '/serviceValidate'
 
-=item * proxyPath - '/proxy'
+=item proxyPath - '/proxy'
 
-=item * proxyValidatePath - '/proxyValidate'
+=item proxyValidatePath - '/proxyValidate'
 
-=item * SSL_version - unset
+=item SSL_version - unset
 
 Sets the version of the SSL protocol used to transmit data. If the default causes connection issues, setting it to 'SSLv3' may help.
-
 see the documentation for IO::Socket::SSL for more information
-
 see (http://www.perlmonks.org/?node_id=746493) for more details.
 
 =back
