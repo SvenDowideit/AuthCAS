@@ -731,7 +731,7 @@ phpCAS L<http://esup-phpcas.sourceforge.net/>
 
 =head1 COPYRIGHT
 
-Copyright (C) 2003, 2005,2006,2007,2009 Olivier Salaun - Comité Réseau des Universités (http://www.cru.fr)
+Copyright (C) 2003, 2005,2006,2007,2009 Olivier Salaun - Comité Réseau des Universités L<http://www.cru.fr>
               2012 Sven Dowideit - L<mailto:SvenDowideit@fosiki.com>
 
 
