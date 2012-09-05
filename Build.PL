@@ -9,7 +9,7 @@ my $builder = Module::Build->new(
     dist_version_from   => 'lib/AuthCAS.pm',
     requires => {
         'IO::Socket::SSL' => 0,
-	'LWP::UserAgent' => 0,
+    	'LWP::UserAgent' => 0,
     },
     add_to_cleanup      => [ 'AuthCAS-*' ],
 );

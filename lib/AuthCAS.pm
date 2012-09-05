@@ -558,7 +558,7 @@ sub callCAS {
 
     my ( $host, $port, $path ) = &_parse_url($url);
 
-    my @xml = &get_https2(
+    my $xml = get_https2(
         $host, $port, $path,
         {
             'cafile'      => $self->{'CAFile'},
@@ -567,18 +567,20 @@ sub callCAS {
         }
     );
 
-    unless (@xml) {
+#use Data::Dumper; die '--'.$#$xml.': '.Dumper($xml);
+
+    unless ($xml && $#$xml >= 0) {
         warn $errors;
         return undef;
     }
 
     ## Skip HTTP header fields
-    my $line = shift @xml;
+    my $line = shift @$xml;
     while ( $line !~ /^\s*$/ ) {
-        $line = shift @xml;
+        $line = shift @$xml;
     }
 
-    return &_parse_xml( join( '', @xml ) );
+    return &_parse_xml( join( '', @$xml ) );
 }
 
 =pod
@@ -660,7 +662,7 @@ sub get_https2 {
         || ( $trusted_ca_path && !( -d $trusted_ca_path ) ) )
     {
         $errors = sprintf
-"error : incorrect access to cafile $trusted_ca_file or capath $trusted_ca_path\n";
+"error : incorrect access to cafile ".($trusted_ca_file||'<empty>')." or capath ".($trusted_ca_path||'<empty>')."\n";
         return undef;
     }
 
@@ -716,7 +718,7 @@ sub get_https2 {
 
     $ssl_socket->close( SSL_no_shutdown => 1 );
 
-    return (@result);
+    return \@result;
 }
 
 =pod
