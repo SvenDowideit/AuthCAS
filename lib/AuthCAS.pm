@@ -438,12 +438,23 @@ Also used to get a PGT
 
 Returns the login that created the ticket, if the ticket is valid for that $service URL
 
+returns undef if the ticket is not valid.
+
 =cut
 
 sub validateST {
     my $self    = shift;
     my $service = shift;
     my $ticket  = shift;
+    
+    if (!defined($service)) {
+        $errors = 'Need a service url to validate ticket.';
+        return undef;
+    }
+    if (!defined($ticket)) {
+        $errors = 'No ticket to validate.';
+        return undef;
+    }
 
     my $pgtUrl = $self->{'pgtCallbackUrl'};
 
@@ -506,7 +517,10 @@ sub validateST {
 
 Validate a Proxy Ticket
 
-Returns the login that created the ticket, if the ticket is valid for that $service URL
+Returns the login that created the ticket, if the ticket is valid for that $service URL, 
+    and a list of Proxies used.
+    
+    user returned == undef if its not a valid ticket
 
 =cut
 
@@ -514,6 +528,15 @@ sub validatePT {
     my $self    = shift;
     my $service = shift;
     my $ticket  = shift;
+
+    if (!defined($service)) {
+        $errors = 'Need a service url to validate ticket.';
+        return undef;
+    }
+    if (!defined($ticket)) {
+        $errors = 'No ticket to validate.';
+        return undef;
+    }
 
     my $xml =
       $self->callCAS( $self->getServerProxyValidateURL( $service, $ticket ) );
