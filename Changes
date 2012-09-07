@@ -1,3 +1,9 @@
+2009-06-08 13:00  sven.dowideit
+
+	* add workaround parameters for SSLv3 issue when connecting to some
+	  enabled servers
+	  Added more Documentation
+
 2009-06-08 13:00  olivier.salaun
 
 	* trunk/META.yml, trunk/lib/AuthCAS.pm: Renaming 1.3.3 release to
