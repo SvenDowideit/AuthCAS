@@ -8,7 +8,7 @@ $VERSION = '1.6';
 
 =head1 NAME
 
-AuthCAS - Client library for CAS 2.0 authentication server
+AuthCAS - Client library for JA-SIG CAS 2.0 authentication server
 
 =head1 VERSION
 
@@ -16,20 +16,12 @@ Version 1.6
 
 =head1 DESCRIPTION
 
-AuthCAS aims at providing a Perl API to Jasig Central Authentication System (CAS). 
+AuthCAS aims at providing a Perl API to JA-SIG Central Authentication System (CAS). 
 Only a basic Perl library is provided with CAS whereas AuthCAS is a full object-oriented library. 
 
 =head1 PREREQUISITES
 
 This script requires IO::Socket::SSL and LWP::UserAgent
-
-=head1 OSNAMES
-
-any
-
-=head1 SCRIPT CATEGORIES
-
-Network
 
 =head1 SYNOPSIS
 
@@ -127,8 +119,8 @@ The C<new> constructor lets you create a new B<AuthCAS> object.
 =item SSL_version - unset
 
 Sets the version of the SSL protocol used to transmit data. If the default causes connection issues, setting it to 'SSLv3' may help.
-see the documentation for IO::Socket::SSL for more information
-see (http://www.perlmonks.org/?node_id=746493) for more details.
+see the documentation for L<IO::Socket::SSL/"METHODS"> for more information
+see L<http://www.perlmonks.org/?node_id=746493> for more details.
 
 =back
 
@@ -731,16 +723,16 @@ sub get_https2 {
 
 =head1 SEE ALSO
 
-Jasig Central Authentication Service (http://www.jasig.org/cas)
+JA-SIG Central Authentication Service L<http://www.jasig.org/cas>
 
-was Yale Central Authentication Service (http://www.yale.edu/tp/auth/) 
+was Yale Central Authentication Service L<http://www.yale.edu/tp/auth/>
  
- phpCAS (http://esup-phpcas.sourceforge.net/)
+phpCAS L<http://esup-phpcas.sourceforge.net/>
 
 =head1 COPYRIGHT
 
 Copyright (C) 2003, 2005,2006,2007,2009 Olivier Salaun - Comité Réseau des Universités (http://www.cru.fr)
-              2012 Sven Dowideit - SvenDowideit@fosiki.com
+              2012 Sven Dowideit - L<mailto:SvenDowideit@fosiki.com>
 
 
 This library is free software; you can redistribute it and/or modify
