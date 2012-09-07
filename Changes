@@ -1,13 +1,103 @@
-2009-06-08 13:00  sven.dowideit
+2012-09-07 01:15  svendowideit
 
-	* add workaround parameters for SSLv3 issue when connecting to some
-	  enabled servers
-	  Added more Documentation
+	* trunk/Build.PL, trunk/MANIFEST, trunk/META.yml: small META
+	  updates
+
+2012-09-07 01:14  svendowideit
+
+	* trunk/lib/AuthCAS.pm, trunk/t/simple.t: don't tlk to CAS server
+	  unless service_url and ticket are defined
+
+2012-09-07 01:14  svendowideit
+
+	* trunk/Build.PL, trunk/MANIFEST, trunk/lib/AuthCAS.pm,
+	  trunk/t/simple.t: add simplistic unit test to expose a problem in
+	  error reporting and un-set variables
+
+2012-09-07 01:13  svendowideit
+
+	* trunk/Build.PL, trunk/META.yml, trunk/Makefile.PL: list same deps
+	  in Build.PL and Makefile.PL -
+	  https://rt.cpan.org/Public/Bug/Display.html?id=52682
+
+2012-09-07 01:12  svendowideit
+
+	* trunk/lib/AuthCAS.pm: missed a link
+
+2012-09-07 01:12  svendowideit
+
+	* trunk/lib/AuthCAS.pm: even more pod
+
+2012-09-07 01:11  svendowideit
+
+	* trunk/lib/AuthCAS.pm: learning a little more pod
+
+2012-09-07 01:11  svendowideit
+
+	* trunk/lib/AuthCAS.pm: learning a little pod
+
+2012-09-07 01:10  svendowideit
+
+	* trunk/lib/AuthCAS.pm: move some pod around
+
+2012-09-07 01:10  svendowideit
+
+	* trunk/Changes, trunk/META.yml, trunk/README,
+	  trunk/lib/AuthCAS.pm: add SSL_version option to constructor to
+	  allow for servers that cause problems
+	  add pod skeletons for all functions
+
+2012-09-07 01:09  svendowideit
+
+	* trunk/lib/AuthCAS.pm: perltidy
+
+2011-04-11 14:36  olivier.salaun
+
+	* branches/1.5: creating tag 1.5
+
+2011-04-11 14:35  olivier.salaun
+
+	* branches/1.4.1/trunk: creating tag 1.4.1
+
+2011-04-11 14:35  olivier.salaun
+
+	* trunk/META.yml, trunk/lib/AuthCAS.pm: changement de numéro de
+	  version pour s'adapter à CPAN : 1.4.1 => 1.5
+
+2011-04-11 14:01  olivier.salaun
+
+	* branches/1.4.1: creating tag 1.4.1
+
+2011-04-11 14:00  olivier.salaun
+
+	* trunk/META.yml, trunk/lib/AuthCAS.pm: preparing release 1.4.1
+
+2011-04-11 13:50  olivier.salaun
+
+	* trunk/Changes: updating changelog
+
+2011-04-11 13:41  olivier.salaun
+
+	* trunk/lib/AuthCAS.pm: Bug fix reported by S.Posé, Rectorat de la
+	  Réunion. AUthentication requests would not get processed by the
+	  CAS server. Replaced \n with \r\n while performing an HTTP GET.
+
+2009-06-08 13:01  olivier.salaun
+
+	* branches/1.4: Tag 1.4
+
+2009-06-08 13:00  olivier.salaun
+
+	* trunk/Changes: Update changelog
 
 2009-06-08 13:00  olivier.salaun
 
 	* trunk/META.yml, trunk/lib/AuthCAS.pm: Renaming 1.3.3 release to
 	  1.4 to match the CPAN versionning style
+
+2009-06-05 15:51  olivier.salaun
+
+	* branches/1.3.3: Tag 1.3.3
 
 2009-06-05 15:47  olivier.salaun
 
@@ -161,6 +251,20 @@
 
 	* trunk/CAS.pm, trunk/sampleCasClient.pl: [reported by V. Mathieu]
 	  Fix: capath and cafile were inverted in sample code
+
+2003-11-14 15:00  
+
+	* tags/INIT-0: This commit was manufactured by cvs2svn to create
+	  tag 'INIT-0'.
+
+2003-11-14 15:00  olivier.salaun
+
+	* First version of PerlCAS
+
+2003-11-14 15:00  
+
+	* branches/INIT: This commit was manufactured by cvs2svn to create
+	  branch 'INIT'.
 
 2003-11-14 15:00  olivier.salaun
 
