@@ -470,11 +470,20 @@ sub validateST {
         return undef;
     }
 
-    my $user =
-      $xml->{'cas:serviceResponse'}[0]{'cas:authenticationSuccess'}[0]
-      {'cas:user'}[0];
+    my $authenticationSuccess = $xml->{'cas:serviceResponse'}[0]{'cas:authenticationSuccess'}[0];
+    my $user = $authenticationSuccess->{'cas:user'}[0];
 
-    ## If in Proxy mode, also retreave a PGT
+    ## If attributes exist, parse extra attributes
+    my %extra_attributes;
+    if ( defined $authenticationSuccess->{'cas:attributes'} )  {
+        my $attributes = $authenticationSuccess->{'cas:attributes'}[0];
+        foreach my $key (keys %$attributes) {
+            (my $extra_attribute_key = $key) =~ s/cas://;
+            $extra_attributes{$extra_attribute_key} = $attributes->{$key}[0];
+        }
+    }
+
+    ## If in Proxy mode, also retrieve a PGT
     if ( $self->{'proxy'} ) {
         my $pgtIou;
         if (
@@ -508,7 +517,7 @@ sub validateST {
         $self->{'pgtId'} = $pgtId;
     }
 
-    return ($user);
+    return wantarray ? ($user, \%extra_attributes) : $user;
 }
 
 =pod
